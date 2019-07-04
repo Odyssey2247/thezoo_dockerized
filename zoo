@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+#zoo thezoo manager script
+#https://github.com/Odyssey2247/thezoo_dockerized
+#Odyssey 2019
+
+echo ""
+echo "TheZoo_Dockerized script manager"
+echo ""
+echo "TheZoo:  https://github.com/ytisf/theZoo"
+echo "zoo script: https://github.com/Odyssey2247/thezoo_dockerized"
+echo ""
+
+function runzoo(){
+echo "---------------------------------"
+echo "Starting conecting TheZoo via ssh"
+echo "USER: thezoo"
+echo "PASSWORD: thezoo"
+echo ""
+docker run -d --name thezoo -p 2222:22 jluis2247/thezoo /usr/sbin/sshd -D
+echo ""
+ssh -t -p 2222 thezoo@127.0.0.1 '$HOME/.local/bin/zoo; bash -l > /dev/null'
+}
+
+docker images | grep jluis2247/thezoo > /dev/null
+
+if [ $? -eq 1  ]
+	then
+		echo "Downloading thezoo docker image"
+		echo "-------------------------------"
+		if [ $? -eq 1 ]
+			then
+				 echo "----------------------------------"
+				 echo "Error. please execute in terminal:"
+				 echo "docker pull jluis2247/thezoo"
+				 echo ""
+			else
+				 echo "----------------------------------"
+				 echo "Sucessfully download the zoo image"
+				 runzoo
+		fi
+	else
+		runzoo
+fi
+
+ 
