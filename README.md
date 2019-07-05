@@ -21,14 +21,14 @@ in terminal:
     $zoo
 
 zoo conect docker container via ssh and ejecute thezoo
-defaul credentials:
+default credentials:
 
     USER: thezoo
     PASSWORD: thezoo
 
 DOCKER RUN
 
-for run thezoo witout the zoo script, run in terminal:
+for run thezoo without the zoo script, run in terminal:
 
     docker pull jluis2247/thezoo
     docker run -d --name thezoo -p 2222:22 jluis2247/thezoo /usr/sbin/sshd -D
