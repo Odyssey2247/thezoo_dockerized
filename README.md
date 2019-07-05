@@ -2,6 +2,7 @@
 Dockerized image of thezoo live malware repository
 
 TheZoo: https://github.com/ytisf/theZoo
+
 zoo script : https://github.com/Odyssey2247/thezoo_dockerized
 
 INSTALL
@@ -14,6 +15,7 @@ INSTALL
 zoo install docker image if is not present
 
 RUN
+
 in terminal:
 
     $zoo
@@ -25,6 +27,7 @@ defaul credentials:
     PASSWORD: thezoo
 
 DOCKER RUN
+
 for run thezoo witout the zoo script, run in terminal:
 
     docker pull jluis2247/thezoo
