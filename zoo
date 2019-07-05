@@ -17,9 +17,20 @@ echo "Starting conecting TheZoo via ssh"
 echo "USER: thezoo"
 echo "PASSWORD: thezoo"
 echo ""
-docker run -d --name thezoo -p 2222:22 jluis2247/thezoo /usr/sbin/sshd -D
+docker ps | grep thezoo > /dev/null
+if [ $? -eq 1 ]
+     then
+	docker ps -a | grep thezoo > /dev/null
+	if [ $? -eq 1 ]
+	    then
+		docker run -d --name thezoo -p 2222:22 jluis2247/thezoo /usr/sbin/sshd -D
+	    else
+		docker start thezoo > /dev/null
+	fi
+        #docker run -d --name thezoo -p 2222:22 jluis2247/thezoo /usr/sbin/sshd -D	
+fi
 echo ""
-ssh -t -p 2222 thezoo@127.0.0.1 '$HOME/.local/bin/zoo; bash -l > /dev/null'
+ssh -t -p 2222 thezoo@127.0.0.1 '$HOME/.local/bin/zoo; bash -l'
 }
 
 docker images | grep jluis2247/thezoo > /dev/null
