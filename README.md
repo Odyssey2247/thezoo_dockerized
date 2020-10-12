@@ -3,11 +3,11 @@ Dockerized image of thezoo live malware repository
 
 TheZoo: https://github.com/ytisf/theZoo
 
-zoo script : https://github.com/Odyssey2247/thezoo_dockerized
+zoo script : https://github.com/joselbr2099/thezoo_dockerized
 
 INSTALL
 
-    git clone https://github.com/Odyssey2247/thezoo_dockerized
+    git clone https://github.com/joselbr2099/thezoo_dockerized
     chmod +x zoo
     cp zoo ~/.local/bin //make sure it is in your PATH
     zoo
